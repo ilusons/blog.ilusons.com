@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 
@@ -204,9 +205,20 @@ const Layout = ({ children, customSEO }) => {
         <GlobalStyle />
         {children}
         <Footer>
-          &copy; 2019 by John Doe. All rights reserved. <br />
-          <a href="https://github.com/LekoArts/gatsby-starter-minimal-blog">GitHub Repository</a> <br />
+          <a href="//ilusons.com">Home</a> | <a href="//blog.ilusons.com">Blog</a> | <a href="mailto:hi@ilusons.com">Contact</a>
+          <br />
+          <br />
+          &copy; 2019 ilusons. All rights reserved.
+          <br />
+          <br />
           <span>Last build: {buildTime}</span>
+          <br />
+          <br />
+          <a href="https://github.com/LekoArts/gatsby-starter-minimal-blog">Source</a>
+          <Helmet>
+            <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+            <script type="text/javascript">{`window.dojoRequire(["mojo/signup-forms/Loader"], function(L) {L.start({ "baseUrl": "mc.us20.list-manage.com", "uuid": "c49b6c01c33e76c675ed22756", "lid": "bcffafd012", "uniqueMethods": true })})`}</script>
+          </Helmet>
         </Footer>
       </>
     </ThemeProvider>

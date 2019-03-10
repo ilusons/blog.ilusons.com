@@ -1,0 +1,17 @@
+image: node:latest
+
+pages:
+  cache:
+    paths:
+    - node_modules/
+
+  script:
+  - npm install gatsby-cli -g
+  - npm install
+  - npm run build
+  artifacts:
+    paths:
+    - public
+  when: manual
+  only:
+  - master
