@@ -47,29 +47,26 @@ const IndexPage = ({
     allMdx: { edges: postEdges },
   },
 }) => (
-    <Layout>
-      <Wrapper>
-        {/* <Hero>
-          <h1>Hi.</h1>
-        </Hero> */}
-        <br />
-        <Content>
-          <SectionTitle>{config.siteTitle}</SectionTitle>
-          {postEdges.map(post => (
-            <Article
-              title={post.node.frontmatter.title}
-              date={post.node.frontmatter.date}
-              excerpt={post.node.excerpt}
-              timeToRead={post.node.timeToRead}
-              slug={post.node.fields.slug}
-              categories={post.node.frontmatter.categories}
-              key={post.node.fields.slug}
-            />
-          ))}
-        </Content>
-      </Wrapper>
-    </Layout>
-  )
+  <Layout>
+    <Wrapper>
+      <Hero>{/* <h1>Hi.</h1> */}</Hero>
+      <Content>
+        <SectionTitle>{config.siteTitle}</SectionTitle>
+        {postEdges.map(post => (
+          <Article
+            title={post.node.frontmatter.title}
+            date={post.node.frontmatter.date}
+            excerpt={post.node.excerpt}
+            timeToRead={post.node.timeToRead}
+            slug={post.node.fields.slug}
+            categories={post.node.frontmatter.categories}
+            key={post.node.fields.slug}
+          />
+        ))}
+      </Content>
+    </Wrapper>
+  </Layout>
+)
 
 export default IndexPage
 
