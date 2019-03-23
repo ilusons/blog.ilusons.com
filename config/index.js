@@ -1,16 +1,16 @@
 module.exports = {
   pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
 
-  siteTitle: 'ilusons\' Blog', // Navigation and Site Title
-  siteTitleAlt: 'ilusons\' Blog', // Alternative Site title for SEO
-  siteTitleManifest: 'ilusons\' Blog',
+  siteTitle: 'A minimal Blog with a focus on software development things.', // Navigation and Site Title
+  siteTitleAlt: 'A minimal Blog with a focus on software development things.', // Alternative Site title for SEO
+  siteTitleManifest: 'A minimal Blog with a focus on software development things.',
   siteUrl: 'http://blog.ilusons.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
-  siteHeadline: 'ilusons\' Blog', // Headline for schema.org JSONLD
+  siteHeadline: 'A minimal Blog with a focus on software development things.', // Headline for schema.org JSONLD
   siteBanner: '/social/banner.png', // Your image for og:image tag. You can find it in the /static folder
   favicon: 'src/favicon.png', // Your image for favicons. You can find it in the /src folder
   siteDescription: 'A minimal Blog with a focus on software development things.', // Your site description
-  author: 'ilusons', // Author for schemaORGJSONLD
+  author: 'code0987, ilusons', // Author for schemaORGJSONLD
   siteLogo: '/social/logo.png', // Image for schemaORGJSONLD
 
   // siteFBAppID: '123456789', // Facebook App ID - Optional

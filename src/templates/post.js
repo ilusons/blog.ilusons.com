@@ -4,6 +4,7 @@ import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import kebabCase from 'lodash/kebabCase'
 import MDXRenderer from 'gatsby-mdx/mdx-renderer'
+import { DiscussionEmbed } from 'disqus-react'
 
 import { Layout, Wrapper, Header, Subline, SEO, PrevNext } from '../components'
 import config from '../../config'
@@ -53,6 +54,12 @@ const PostContent = styled.div`
 const Post = ({ pageContext: { slug, prev, next }, data: { mdx: postNode } }) => {
   const post = postNode.frontmatter
 
+  const disqusShortname = 'ilusons-blog'
+  const disqusConfig = {
+    identifier: slug,
+    title: post.title,
+  }
+
   return (
     <Layout customSEO>
       <Wrapper>
@@ -75,6 +82,9 @@ const Post = ({ pageContext: { slug, prev, next }, data: { mdx: postNode } }) =>
             <MDXRenderer>{postNode.code.body}</MDXRenderer>
           </PostContent>
           <PrevNext prev={prev} next={next} />
+          <br />
+          <br />
+          <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
         </Content>
       </Wrapper>
     </Layout>
