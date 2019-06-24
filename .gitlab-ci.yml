@@ -5,13 +5,17 @@ pages:
     paths:
     - node_modules/
 
+  before_script:
+  - git remote set-url origin https://$GITHUB_ACCESS_TOKEN@gitlab.com/$GITHUB_PATH.git
+  - git config user.email 'gitlab+ci+bot@ilusons.com'
+  - git config user.name 'Gitlab CI Bot'
+
   script:
   - npm install gatsby-cli -g
   - npm install
-  - npm run build
+  - npm run deploy
   artifacts:
     paths:
     - public
-  when: manual
   only:
   - master
