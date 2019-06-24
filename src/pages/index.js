@@ -44,24 +44,24 @@ const Hero = styled.div`
 
 const IndexPage = ({
   data: {
-    allMdx: { edges: postEdges },
+    allMdx: { nodes: posts },
   },
 }) => (
   <Layout>
     <Wrapper>
       <Hero>{/* <h1>Hi.</h1> */}</Hero>
       <Content>
-        <SectionTitle>{config.siteTitle}</SectionTitle>
-        {postEdges.map(post => (
+        <SectionTitle>Latest</SectionTitle>
+        {posts.map(post => (
           <Article
-            title={post.node.frontmatter.title}
-            date={post.node.frontmatter.date}
-            excerpt={post.node.excerpt}
-            timeToRead={post.node.timeToRead}
-            url={post.node.frontmatter.url}
-            slug={post.node.fields.slug}
-            categories={post.node.frontmatter.categories}
-            key={post.node.fields.slug}
+            title={post.frontmatter.title}
+            date={post.frontmatter.date}
+            excerpt={post.excerpt}
+            url={post.frontmatter.url}
+            timeToRead={post.timeToRead}
+            slug={post.fields.slug}
+            categories={post.frontmatter.categories}
+            key={post.fields.slug}
           />
         ))}
       </Content>
@@ -74,7 +74,7 @@ export default IndexPage
 IndexPage.propTypes = {
   data: PropTypes.shape({
     allMdx: PropTypes.shape({
-      edges: PropTypes.array.isRequired,
+      nodes: PropTypes.array.isRequired,
     }),
   }).isRequired,
 }
@@ -82,20 +82,18 @@ IndexPage.propTypes = {
 export const IndexQuery = graphql`
   query IndexQuery {
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            date(formatString: "MM/DD/YYYY")
-            categories
-            url
-          }
-          excerpt(pruneLength: 200)
-          timeToRead
+      nodes {
+        fields {
+          slug
         }
+        frontmatter {
+          title
+          date(formatString: "MM/DD/YYYY")
+          categories
+          url
+        }
+        excerpt(pruneLength: 200)
+        timeToRead
       }
     }
   }
