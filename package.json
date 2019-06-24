@@ -46,7 +46,6 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop -o",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
@@ -55,7 +54,8 @@
     "format": "prettier \"**/*.{md,mdx} \" --write",
     "deploy": "gatsby build && gh-pages -d public -b gh-pages",
     "debug": "npm run build && npm run serve",
-    "clean-debug": "rmdir public /S /Q && npm run build && npm run serve"
+    "clean-debug": "rmdir public /S /Q && npm run build && npm run serve",
+    "dev": "npm run clean-debug && npm run debug"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

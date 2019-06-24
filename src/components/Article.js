@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import kebabCase from 'lodash/kebabCase'
-
 import Subline from './Subline'
 
 const Post = styled.article`
@@ -45,14 +44,14 @@ const Excerpt = styled.p`
   margin-bottom: 1rem;
 `
 
-const Article = ({ title, date, excerpt, slug, timeToRead, categories }) => {
+const Article = ({ title, date, excerpt, url, slug, timeToRead, categories }) => {
   const firstChar = title.charAt(0)
 
   return (
     <Post>
       <Title>
         <Initiale>{firstChar}</Initiale>
-        <Link to={slug}>{title}</Link>
+        {url && url.indexOf('://') > 0 ? <a href={url}>{title}</a> : <Link to={slug}>{title}</Link>}
       </Title>
       <Subline>
         {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
@@ -74,6 +73,7 @@ Article.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   excerpt: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   timeToRead: PropTypes.number.isRequired,
   categories: PropTypes.array.isRequired,

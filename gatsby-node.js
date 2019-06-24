@@ -20,8 +20,7 @@ exports.onCreateNode = ({ node, actions }) => {
       Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug')
     ) {
       slug = `/${_.kebabCase(node.frontmatter.slug)}`
-    }
-    if (
+    } else if (
       Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
       Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
     ) {
@@ -49,6 +48,7 @@ exports.createPages = async ({ graphql, actions }) => {
               frontmatter {
                 title
                 categories
+                url
               }
             }
           }
