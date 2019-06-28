@@ -3,8 +3,10 @@
 <url> <loc>http://blog.ilusons.com/introduction-to-canvas</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://blog.ilusons.com/creating-multi-purpose-reactive-forms-with-angular</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://blog.ilusons.com/welcome-folks</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>http://blog.ilusons.com/categories/html-canvas</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>http://blog.ilusons.com/categories/html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>http://blog.ilusons.com/categories/canvas</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://blog.ilusons.com/categories/angular</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>http://blog.ilusons.com/categories/javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://blog.ilusons.com/categories/welcome</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://blog.ilusons.com/categories/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://blog.ilusons.com/contact/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
