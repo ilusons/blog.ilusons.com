@@ -1,21 +1,24 @@
 image: node:latest
 
 pages:
+  only:
+  - master
+
   cache:
     paths:
     - node_modules/
 
   before_script:
+  - git config user.email 'devbot@ilusons.com'
+  - git config user.name 'Dev Bot'
+
   - git remote set-url origin https://$GITHUB_USER:$GITHUB_ACCESS_TOKEN@github.com/$GITHUB_PATH.git
-  - git config user.email 'gitlab+ci+bot@ilusons.com'
-  - git config user.name 'Gitlab CI Bot'
 
   script:
   - npm install gatsby-cli -g
   - npm install
   - npm run deploy
+
   artifacts:
     paths:
     - public
-  only:
-  - master
