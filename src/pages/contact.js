@@ -31,9 +31,12 @@ const Content = styled.div`
       input {
         min-width: 275px;
         margin-top: 0.5rem;
+        box-sizing: border-box;
+        width: 100%;
       }
       textarea {
         resize: vertical;
+        box-sizing: border-box;
         min-height: 150px;
         width: 100%;
         margin-top: 0.5rem;

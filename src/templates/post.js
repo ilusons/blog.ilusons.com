@@ -79,7 +79,7 @@ const Post = ({ pageContext: { slug, prev, next }, data: { mdx: postNode } }) =>
             ))}
           </Subline>
           <PostContent>
-            <MDXRenderer>{postNode.code.body}</MDXRenderer>
+            <MDXRenderer>{postNode.body}</MDXRenderer>
           </PostContent>
           <PrevNext prev={prev} next={next} />
           <br />
@@ -114,9 +114,7 @@ Post.defaultProps = {
 export const postQuery = graphql`
   query postBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
-      code {
-        body
-      }
+      body
       excerpt
       frontmatter {
         title
