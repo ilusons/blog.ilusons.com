@@ -17,6 +17,7 @@ pages:
   script:
   - npm install gatsby-cli -g
   - npm install
+  - sed -i'' -e 's|/latest?format=json|?format=json|g' node_modules/gatsby-source-medium/gatsby-node.js
   - npm run deploy
 
   artifacts:
