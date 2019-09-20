@@ -19,6 +19,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-medium',
+      options: {
+        username: '@code0987',
+        limit: 100,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: config.googleAnalyticsID,

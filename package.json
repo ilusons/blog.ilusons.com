@@ -25,6 +25,7 @@
     "gatsby-remark-external-links": "0.0.4",
     "gatsby-remark-images": "^3.1.0",
     "gatsby-source-filesystem": "^2.1.0",
+    "gatsby-source-medium": "^2.1.6",
     "lodash": "^4.17.11",
     "mdx-utils": "^0.1.1",
     "polished": "^3.4.1",
@@ -55,8 +56,8 @@
     "format": "prettier \"**/*.{md,mdx} \" --write",
     "deploy": "gatsby build && gh-pages -d public -b gh-pages",
     "debug": "npm run build && npm run serve",
-    "clean-debug": "rmdir public /S /Q && npm run build && npm run serve",
-    "dev": "npm run clean-debug && npm run debug"
+    "clean": "rmdir public /S /Q && rmdir .cache /S /Q",
+    "dev": "npm run clean && npm run debug"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",

@@ -45,35 +45,51 @@ const Hero = styled.div`
 const IndexPage = ({
   data: {
     allMdx: { nodes: posts },
+    allMediumPost: { nodes: mediumPosts },
   },
 }) => (
-  <Layout>
-    <Wrapper>
-      <Hero>{/* <h1>Hi.</h1> */}</Hero>
-      <Content>
-        <SectionTitle>Latest</SectionTitle>
-        {posts.map(post => (
-          <Article
-            title={post.frontmatter.title}
-            date={post.frontmatter.date}
-            excerpt={post.excerpt}
-            url={post.frontmatter.url}
-            timeToRead={post.timeToRead}
-            slug={post.fields.slug}
-            categories={post.frontmatter.categories}
-            key={post.fields.slug}
-          />
-        ))}
-      </Content>
-    </Wrapper>
-  </Layout>
-)
+    <Layout>
+      <Wrapper>
+        <Hero>{/* <h1>Hi.</h1> */}</Hero>
+        <Content>
+          <SectionTitle>Latest</SectionTitle>
+          {mediumPosts.map(post => (
+            <Article
+              title={post.title}
+              date={post.createdAt}
+              excerpt={post.virtuals.subtitle}
+              url={`https://medium.com/p/${post.uniqueSlug}`}
+              timeToRead={Math.round(post.virtuals.readingTime, 0)}
+              slug={post.slug}
+              categories={[] || post.virtuals.tags.map(x => x.name)} // TODO: Impl. categories for all
+              key={post.id}
+            />
+          ))}
+          {posts.map(post => (
+            <Article
+              title={post.frontmatter.title}
+              date={post.frontmatter.date}
+              excerpt={post.excerpt}
+              url={post.frontmatter.url}
+              timeToRead={post.timeToRead}
+              slug={post.fields.slug}
+              categories={post.frontmatter.categories}
+              key={post.fields.slug}
+            />
+          ))}
+        </Content>
+      </Wrapper>
+    </Layout>
+  )
 
 export default IndexPage
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
     allMdx: PropTypes.shape({
+      nodes: PropTypes.array.isRequired,
+    }),
+    allMediumPost: PropTypes.shape({
       nodes: PropTypes.array.isRequired,
     }),
   }).isRequired,
@@ -94,6 +110,22 @@ export const IndexQuery = graphql`
         }
         excerpt(pruneLength: 200)
         timeToRead
+      }
+    }
+    allMediumPost(sort: { fields: [createdAt], order: DESC }) {
+      nodes {
+        id
+        slug
+        uniqueSlug
+        title
+        virtuals {
+          subtitle
+          tags {
+            name
+          }
+          readingTime
+        }
+        createdAt(formatString: "MM/DD/YYYY")
       }
     }
   }
