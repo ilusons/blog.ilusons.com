@@ -6,11 +6,9 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.4.5",
     "@mdx-js/react": "^1.4.5",
-    "@mdx-js/tag": "^0.20.3",
     "babel-plugin-styled-components": "^1.10.6",
     "disqus-react": "^1.0.7",
     "gatsby": "^2.15.19",
-    "gatsby-mdx": "^1.0.0",
     "gatsby-plugin-catch-links": "^2.1.10",
     "gatsby-plugin-google-analytics": "^2.1.17",
     "gatsby-plugin-lodash": "^3.1.8",
