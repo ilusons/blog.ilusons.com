@@ -1,6 +1,10 @@
 image: node:latest
 
+stages:
+  - deploy
+
 pages:
+  stage: deploy
   only:
   - master
 
