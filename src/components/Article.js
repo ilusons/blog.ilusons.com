@@ -54,7 +54,7 @@ const Article = ({ title, date, excerpt, url, slug, timeToRead, categories }) =>
         {url && url.indexOf('://') > 0 ? <a href={url}>{title}</a> : <Link to={slug}>{title}</Link>}
       </Title>
       <Subline>
-        {date} &mdash; {timeToRead} Min Read &mdash; In{' '}
+        {date} &mdash; {timeToRead} Min Read {(categories && categories.length > 0) ? '— In ' : ''}
         {categories.map((cat, i) => (
           <React.Fragment key={cat}>
             {!!i && ', '}
