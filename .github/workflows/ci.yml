@@ -20,11 +20,11 @@ jobs:
 
     - name: 🛠️ Build & ✅ Test
       run: |
-      npm install gatsby-cli -g
-      npm ci
-      sed -i'' -e 's|/latest?format=json|?format=json|g' node_modules/gatsby-source-medium/gatsby-node.js
-      npm run build
-      npm run test
+        npm install gatsby-cli -g
+        npm ci
+        sed -i'' -e 's|/latest?format=json|?format=json|g' node_modules/gatsby-source-medium/gatsby-node.js
+        npm run build
+        npm run test
 
     - name: 📦 Deploy
       uses: netlify/actions/cli@master
