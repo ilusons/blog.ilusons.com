@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  test-build-deploy:
+    name: ✅ Test, 🛠️ Build & 📦 Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: ⚙️ Checkout
+      uses: actions/checkout@v2
+
+    - name: ⚙️ Setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+
+    - name: 🛠️ Build & ✅ Test
+      run: |
+      npm install gatsby-cli -g
+      npm ci
+      sed -i'' -e 's|/latest?format=json|?format=json|g' node_modules/gatsby-source-medium/gatsby-node.js
+      npm run build
+      npm run test
+
+    - name: 📦 Deploy
+      uses: netlify/actions/cli@master
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      with:
+        args: deploy --dir=public --prod
+        secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'

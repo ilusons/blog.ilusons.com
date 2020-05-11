@@ -52,6 +52,7 @@
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
     "lint:ci": "yarn lint --format junit -o results/eslint/result.xml",
+    "test": "echo Test",
     "format": "prettier \"**/*.{md,mdx} \" --write",
     "deploy": "gatsby build && gh-pages -d public -b gh-pages",
     "debug": "npm run build && npm run serve",
